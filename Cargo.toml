@@ -1,0 +1,12 @@
+[profile.release]
+panic = "unwind"
+
+[workspace]
+members = [
+	"node",
+	"pallets/collator-selection-power",
+	"pallets/miner",
+	"pallets/power",
+	"pallets/pns",
+	"runtime",
+]

@@ -1,0 +1,28 @@
+<mxfile host="Electron" modified="2023-09-22T07:08:25.779Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.7.5 Chrome/114.0.5735.289 Electron/25.8.1 Safari/537.36" etag="1tnyCpTXV6QrjQ5s88Uy" version="21.7.5" type="device">
+  <diagram name="Page-1" id="asLHPViatwSw3C3MlAYw">
+    <mxGraphModel dx="1632" dy="3828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="583" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pjPqzu_BbsrPkTII3aPr-7" value="&lt;h1&gt;Collator&lt;/h1&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;" parent="1" vertex="1">
+          <mxGeometry x="40" y="-2410" width="360" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="pjPqzu_BbsrPkTII3aPr-1" value="&lt;h1&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;Pallets&lt;/font&gt;&lt;/h1&gt;&lt;div style=&quot;font-size: 24px;&quot;&gt;&lt;ul&gt;&lt;li style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;Market&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;Power&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;Rewards&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;Miner&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="-2370" width="180" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="pjPqzu_BbsrPkTII3aPr-5" value="&lt;h1&gt;&lt;font face=&quot;Courier New&quot;&gt;motus&lt;/font&gt;&lt;/h1&gt;&lt;div style=&quot;text-align: left; font-size: 24px;&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 24px; background-color: initial;&quot;&gt;Mining system&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 24px; background-color: initial;&quot;&gt;performs storage proofs&lt;/span&gt;&lt;/li&gt;&lt;li&gt;a Rust executable&lt;/li&gt;&lt;li&gt;maintains file storage in sectors&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;" parent="1" vertex="1">
+          <mxGeometry x="520" y="-2410" width="410" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pjPqzu_BbsrPkTII3aPr-6" value="&lt;h1&gt;Storage Client&lt;/h1&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="520" y="-2170" width="360" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pjPqzu_BbsrPkTII3aPr-8" value="&lt;h1 style=&quot;border-color: var(--border-color);&quot;&gt;Blockchain State&lt;/h1&gt;&lt;font style=&quot;border-color: var(--border-color); font-size: 24px;&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;ul&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;like Filecoin state&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;but &lt;font face=&quot;Courier New&quot;&gt;&lt;b&gt;DOT&lt;/b&gt;&lt;/font&gt;, not &lt;font face=&quot;Courier New&quot;&gt;&lt;b&gt;FIL&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="80" y="-2130" width="250" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="pjPqzu_BbsrPkTII3aPr-10" value="&lt;h1 style=&quot;border-color: var(--border-color);&quot;&gt;JSON-RPC&lt;/h1&gt;&lt;div style=&quot;border-color: var(--border-color); font-size: 24px;&quot;&gt;&lt;ul style=&quot;border-color: var(--border-color);&quot;&gt;&lt;li style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;font face=&quot;Courier New&quot;&gt;Chain_xxx&lt;/font&gt;&lt;/li&gt;&lt;li style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font face=&quot;Courier New&quot;&gt;Client_xxx&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;font face=&quot;Courier New&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Market_xxx&lt;/span&gt;&lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;li style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;font face=&quot;Courier New&quot;&gt;State_xxx&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;span style=&quot;border-color: var(--border-color); background-color: initial; font-size: 24px;&quot;&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="-1960" width="220" height="240" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
