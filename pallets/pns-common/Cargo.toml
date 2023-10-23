@@ -1,0 +1,52 @@
+[package]
+name = "pallet-pns-common"
+version = "0.1.0"
+authors = ["Eiger <hello@eiger.co>"]
+edition = "2021"
+readme = "README.md"
+
+repository = "https://github.com/eigerco/polka-storage"
+description = "Common definitions for PNS pallet"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "3.0.0", features = ["derive"], default-features = false }
+scale-info = { version = "2.2.0", default-features = false, features = ["derive"] }
+
+# Substrate
+frame-benchmarking = { git = "https://github.com/paritytech/substrate", default-features = false, optional = true, branch = "polkadot-v1.0.0" }
+frame-support = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v1.0.0" }
+frame-system = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v1.0.0" }
+sp-runtime = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v1.0.0" }
+
+unsigned-varint = { default-features = false, version = "0.7.1" }
+blake2b_simd = { default-features = false, version = "1.0.2" }
+
+serde = { version = "1.0.188", default-features = false }
+thiserror-no-std = { default-features = false, version = "2.0" }
+num-traits = { default-features = false, version = "0.2" }
+num-derive = { default-features = false, version = "0.4" }
+data-encoding = { default-features = false, version = "2.4.0", features = ["alloc"] }
+data-encoding-macro = { default-features = false, version = "0.1.13" }
+
+[dev-dependencies]
+serde = { version = "1.0.188" }
+
+# Substrate
+sp-core = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v1.0.0" }
+sp-io = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v1.0.0" }
+
+[features]
+default = ["std"]
+runtime-benchmarks = ["frame-benchmarking/runtime-benchmarks"]
+std = [
+	"codec/std",
+	"data-encoding/std",
+	"scale-info/std",
+	"frame-benchmarking/std",
+	"frame-support/std",
+	"frame-system/std",
+]
+try-runtime = [ "frame-support/try-runtime" ]
