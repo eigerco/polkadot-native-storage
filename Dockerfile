@@ -12,7 +12,7 @@ RUN git clone https://github.com/paritytech/polkadot-sdk.git && cd polkadot-sdk 
 # Delete below three lines when polka-storage repo will become public
 WORKDIR /usr/src/polka-storage
 COPY . .
-RUN cargo build --release --features runtime-benchmarks
+RUN cargo build --release
 
 # Uncomment when polka-storage repo will become public
 #RUN git clone https://github.com/eigerco/polka-storage.git && cd polka-storage && cargo build --release --features runtime-benchmarks
