@@ -36,11 +36,11 @@ Required tools:
 
 Users should also have a basic understanding of the Substrate framework and the Polkadot ecosystem.
 
-The requirements we can test with the local setup and provided PoC code:
+The requirements we can test or show with the local setup and provided PoC code:
 - parachain registration to local relay chain;
 - parachain block production;
-- XCM (Cross-Chain Messaging) - sending messages between parachains using sudo pallet and ping pallet;
-- visibility of the Filecoin actors as pallets in the local parachain;
+- XCM (Cross-Chain Messaging) - sending messages between parachains using official sudo pallet;
+- visibility of the Filecoin actors as pallets in the local node;
 - ability to run parts of the FVM code in the Substrate runtime (WASM environment);
 - the ability to interact with the actors (e.g. miner actor - add miner, change worker address) using extrinsics;
 - RPC endpoint interaction (hardcoded returned values);
@@ -78,7 +78,7 @@ yarn start
 ### Local parachain (collator)
 Download the `polka-storage` parachain repository:
 ```bash
-git clone https://github.com/eigerco/polka-storage.git
+git clone https://github.com/eigerco/polkadot-native-storage polka-storage
 ```
 
 Then build it:
