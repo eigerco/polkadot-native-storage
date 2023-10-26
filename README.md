@@ -11,9 +11,9 @@ Repository structure:
 - `scripts` - contains the scripts used to build or test the project
 
 ## Building the node
-Download the `polka-storage` parachain repository:
+Download the `polka-native-storage` parachain repository:
 ```bash
-git clone https://github.com/eigerco/polka-storage.git
+git clone https://github.com/eigerco/polkadot-native-storage polka-storage
 ```
 
 Then build it:

@@ -14,8 +14,8 @@ WORKDIR /usr/src/polka-storage
 COPY . .
 RUN cargo build --release
 
-# Uncomment when polka-storage repo will become public
-#RUN git clone https://github.com/eigerco/polka-storage.git && cd polka-storage && cargo build --release --features runtime-benchmarks
+# Uncomment when polka-storage repo will become public and available for cloning for everyone
+#RUN git clone https://github.com/eigerco/polkadot-native-storage polka-storage && cd polka-storage && cargo build --release --features runtime-benchmarks
 
 FROM debian:bookworm-slim
 RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
