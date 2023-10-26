@@ -91,6 +91,10 @@ pub mod pallet {
             miner_account_id: MinerAccountId<T>,
             new_owner: T::AccountId,
         },
+
+        TestEvent {
+            emiter: T::AccountId
+        }
     }
 
     // Errors inform users that something went wrong.
@@ -324,6 +328,18 @@ pub mod pallet {
                 }
             }
 
+            Ok(().into())
+        }
+
+        #[pallet::call_index(5)]
+        #[pallet::weight(Weight::from_parts(10_000, 0) + T::DbWeight::get().writes(1))]
+        pub fn check_events(origin: OriginFor<T>) -> DispatchResultWithPostInfo {
+            // Check that the extrinsic was signed and get the signer.
+            let who = ensure_signed(origin)?;
+
+            Self::deposit_event(Event::TestEvent { emiter: who });
+
+            // Return a successful DispatchResultWithPostInfo
             Ok(().into())
         }
     }

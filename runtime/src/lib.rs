@@ -541,7 +541,6 @@ mod benches {
 		[pallet_collator_selection_power, CollatorSelectionPower]
 		[cumulus_pallet_xcmp_queue, XcmpQueue]
 		[pallet_miner, MinerModule]
-		[pallet_power, PowerModule]
 		[pallet_pns, PnsModule]
 	);
 }
