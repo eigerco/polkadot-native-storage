@@ -53,6 +53,7 @@ impl crate::Config for Test {
 }
 
 // Build genesis storage according to the mock runtime.
+#[allow(dead_code)]
 pub fn new_test_ext() -> sp_io::TestExternalities {
     system::GenesisConfig::<Test>::default()
         .build_storage()
