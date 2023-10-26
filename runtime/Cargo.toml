@@ -150,6 +150,8 @@ runtime-benchmarks = [
 	"cumulus-pallet-session-benchmarking/runtime-benchmarks",
 	"cumulus-pallet-xcmp-queue/runtime-benchmarks",
 	"pallet-collator-selection-power/runtime-benchmarks",
+	"pallet-miner/runtime-benchmarks",
+	"pallet-pns/runtime-benchmarks",
 ]
 
 try-runtime = [

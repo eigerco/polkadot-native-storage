@@ -1,4 +1,4 @@
-//! Benchmarking setup for pallet-power
+//! Benchmarking setup for pallet-pns
 #![cfg(feature = "runtime-benchmarks")]
 use frame_benchmarking::v2::*;
 use frame_system::RawOrigin;
@@ -12,44 +12,21 @@ mod benchmarks {
     use super::*;
 
     #[benchmark]
-    fn create() {
+    fn store_file() {
         let caller: T::AccountId = whitelisted_caller();
 
         #[extrinsic_call]
-        create(RawOrigin::Signed(caller));
+        store_file(RawOrigin::Signed(caller));
     }
 
     #[benchmark]
-    fn change_worker_address() {
+    fn retrieve_file() {
         let caller: T::AccountId = whitelisted_caller();
 
         #[extrinsic_call]
-        create(RawOrigin::Signed(caller));
+        retrieve_file(RawOrigin::Signed(caller));
     }
 
-    #[benchmark]
-    fn change_peer_id() {
-        let caller: T::AccountId = whitelisted_caller();
 
-        #[extrinsic_call]
-        create(RawOrigin::Signed(caller));
-    }
-
-    #[benchmark]
-    fn confirm_update_worker_key() {
-        let caller: T::AccountId = whitelisted_caller();
-
-        #[extrinsic_call]
-        create(RawOrigin::Signed(caller));
-    }
-
-    #[benchmark]
-    fn change_owner_address() {
-        let caller: T::AccountId = whitelisted_caller();
-
-        #[extrinsic_call]
-        create(RawOrigin::Signed(caller));
-    }
-
-    impl_benchmark_test_suite!(Miner, crate::mock::new_test_ext(), crate::mock::Test,);
+    impl_benchmark_test_suite!(PnsModule, crate::mock::new_test_ext(), crate::mock::Test,);
 }
