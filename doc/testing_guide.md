@@ -162,11 +162,16 @@ test tests::confirm_update_worker_key_rejects_trigger_before_effective_at ... ok
 ```
 
 ### RPC testing
-RPC testing is performed by running the local parachain and sending requests to the RPC endpoint. The endpoint is available at `localhost:9977` by default (can be changed).
+RPC testing can be performed by running the local node and sending requests to the RPC endpoint. The endpoint is available at `localhost:9944` by default (can be changed).
+
+To run it, please ensure no other nodes are running locally and execute the node with the development chain:
+```bash
+./target/release/polka-storage-node --dev --tmp
+```
 
 The parameters are passed as JSON objects. The following example shows how to get the miner address:
 ```bash
-curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "pns_chainGetBlock", "params": ["123"]}' http://localhost:9977/
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "pns_chainGetBlock", "params": ["123"]}' http://localhost:9944/
 ```
 
 For above example, the response should be:
@@ -186,6 +191,8 @@ To establish HRMP (it's XCMP-lite) communication channels, you can follow the [o
 When the channel setup is finished you can try to send messages between parachains. You can use `pallet-ping` (incorporated as `pingbot`) to send pings between the parachains. There is also a possibility to execute an extrinsic or send a message using `polkadotXCM` pallet and `send` [extrinsic](https://docs.substrate.io/tutorials/build-a-parachain/transfer-assets-with-xcm/).
 
 ## Benchmarking
+Please note that the benchmarking process is not ready for the PoC code yet and will be available in the future. For now, the weights are set manually.
+
 Benchmarking and updating weights should be done each time a new extrinsic is added to any pallet (weights are used to estimate transaction fees). Weights are obligatory for extrinsics that are available for users.
 
 To update weights, the user can run the following command:
@@ -193,5 +200,3 @@ To update weights, the user can run the following command:
 ./target/release/polka-storage-node benchmark pallet --chain dev --pallet pallet-name --steps=50 --repeat=20 --wasm-execution=compiled --output pallets/pallet-name/src/weights.rs --template ./.maintain/frame-weight-template.hbs --extrinsic '*'
 ```
 when being in the PNS root directory. The template for the weights is located under `./.maintain/frame-weight-template.hbs` directory and can be obtained from the Substrate repository.
-
-Please note that the benchmarking process is not ready for the PoC code yet and will be available in the future. For now, the weights are set manually.
