@@ -180,7 +180,7 @@ For above example, the response should be:
 ````
 
 ### XCM testing
-XCM testing is performed by running the local parachain and sending XCM messages using the sudo pallet.
+XCM testing is performed by running the local parachain and sending XCM messages using the sudo pallet. It's fully aligned with the official guides.
 
 In order to run the XCM message exchange, make sure you can log into the UI and switch between the relay chain and the collator nodes (right WS ports).
 
@@ -188,7 +188,7 @@ Make sure you have enough capacity in your configuration. Click Developer and se
 
 To establish HRMP (it's XCMP-lite) communication channels, you can follow the [official guide](https://docs.substrate.io/tutorials/build-a-parachain/open-message-passing-channels/). Alternatively, you can try to do it using extrinsics: paraSudoWrapper (used previously to set up parachain) with `sudoEstabllishHrmpChannel`. Then you can just enter there two ParaIDs (like 2000 and 2001 - the second ID should come from other external parachain), max capacity and message size.
 
-When the channel setup is finished you can try to send messages between parachains. You can use `pallet-ping` (incorporated as `pingbot`) to send pings between the parachains. There is also a possibility to execute an extrinsic or send a message using `polkadotXCM` pallet and `send` [extrinsic](https://docs.substrate.io/tutorials/build-a-parachain/transfer-assets-with-xcm/).
+When the channel setup is finished you can try to send messages between parachains. Please use the official guides mentioned above as things are changing rapidly and the most up-to-date information can be found there. PoC code has no custom logic for XCM (uses default XCM endpoint).
 
 ## Benchmarking
 Please note that the benchmarking process is not ready for the PoC code yet and will be available in the future. For now, the weights are set manually.
@@ -199,4 +199,4 @@ To update weights, the user can run the following command:
 ```bash
 ./target/release/polka-storage-node benchmark pallet --chain dev --pallet pallet-name --steps=50 --repeat=20 --wasm-execution=compiled --output pallets/pallet-name/src/weights.rs --template ./.maintain/frame-weight-template.hbs --extrinsic '*'
 ```
-when being in the PNS root directory. The template for the weights is located under `./.maintain/frame-weight-template.hbs` directory and can be obtained from the Substrate repository.
+when being in the PNS root directory. Be sure to use appropriate `pallet-name` and change it in the above call in two places.  The template for the weights is located under `./.maintain/frame-weight-template.hbs` directory and can be obtained from the Substrate repository.
