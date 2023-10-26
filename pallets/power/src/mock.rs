@@ -13,7 +13,7 @@ frame_support::construct_runtime!(
     pub enum Test
     {
         System: frame_system::{Pallet, Call, Config<T>, Storage, Event<T>},
-        PowerModule: crate::{Pallet, Call, Storage, Event<T>},
+        PowerModule: crate::{Pallet, Call, Storage},
     }
 );
 
@@ -51,10 +51,10 @@ impl system::Config for Test {
 impl crate::Config for Test {
     type PeerId = Vec<u8>;
     type StoragePower = u128;
-    type RuntimeEvent = RuntimeEvent;
 }
 
 // Build genesis storage according to the mock runtime.
+#[allow(dead_code)]
 pub fn new_test_ext() -> sp_io::TestExternalities {
     system::GenesisConfig::<Test>::default()
         .build_storage()
