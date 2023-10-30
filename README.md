@@ -18,6 +18,7 @@ git clone https://github.com/eigerco/polkadot-native-storage polka-storage
 
 Then build it:
 ```bash
+cd polka-storage
 cargo build --release
 ```
 
@@ -31,6 +32,8 @@ It is possible to generate a docker image containing a working `polka-storage-no
 sudo docker build -t "pns:Dockerfile" .
 ```
 
+Please note that building may require a lot of time and resources. Linux system is preffered to build the image.
+
 When the build is ready, you can check if you can see the image in the docker repository by running:
 ```bash
 sudo docker images
@@ -43,3 +46,7 @@ sudo docker run pns:Dockerfile
 
 It will start the `polka-storage-node` on the local interface and two relay chain nodes. You can change the default behavior by passing your own command when running the docker image. All available options are in the [node template](https://docs.substrate.io/reference/command-line-tools/node-template/) documentation.
 
+To stop the nodes please use `docker stop` command:
+```bash
+sudo docker stop <container_id>
+```
