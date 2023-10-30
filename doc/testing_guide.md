@@ -48,17 +48,23 @@ The requirements we can test or show with the local setup and provided PoC code:
 
 
 ### Local relay chain
+To run a local parachain you'll need to run the local relay chain first. The following directory structure is assumed:
+- root directory
+- - polkadot-sdk
+- - polka-storage
+- - polkadot-js
+
 You'll need to download and compile some parts of `polkadot-sdk` repository in order to set up the local relay chain.
 
 Download the repository and checkout the stable branch:
 ```bash
 git clone https://github.com/paritytech/polkadot-sdk.git
+cd polkadot-sdk
 git checkout polkadot-v1.1.0
 ```
 
 Then, build the relay chain node:
 ```bash
-cd polkadot
 cargo build --release
 ```
 
@@ -76,33 +82,28 @@ yarn start
 ```
 
 ### Local parachain (collator)
-Download the `polkadot-native-storage` parachain repository:
+If you have not done this already, download and build the polkadot-native-storage parachain repository:
 ```bash
 git clone https://github.com/eigerco/polkadot-native-storage polka-storage
 ```
 
 Then build it:
 ```bash
+cd polka-storage
 cargo build --release
 ```
 
 ### Putting local parachain and relay chain together
-To run a local parachain you'll need to run the local relay chain first. The following directory structure is assumed:
-- root directory
-- - polkadot-sdk
-- - polka-storage
-- - polkadot-js
+Confirm that `polkadot-js` is running, by checking browser at `localhost:3000`. For more information about Polkadot UI, please refer to the [official documentation](https://polkadot.js.org/docs/).
 
-Ensure that `polkadot-js` is running.
-
-Run the local relay chain (two nodes):
+Run the local relay chain (two nodes) - use two different terminals, sessions (`tmux` or `screen`) or run in the background by adding `&` at the end of the command:
 ```bash
 cd polkadot-sdk
 ./target/release/polkadot --alice --validator --base-path /tmp/relay/alice --chain ../polka-storage/polkadot-launch/spec/raw-local-chainspec.json --port 30333 --rpc-port 9944
 ./target/release/polkadot --bob --validator --base-path /tmp/relay/bob --chain ../polka-storage/polkadot-launch/spec/raw-local-chainspec.json --port 30334 --rpc-port 9945
 ```
 
-Check the UI to see if the local testnet is visible. If so, go to Network -> Parchains -> Parathreads and click "+" ParaId button. Ensure if the parachain id is 2000 (configuration in our repository assumes that's your only local parachain). If you have other parachains, get the first free parachain id and modify files under `polka-storage/polkadot-launch/spec/`.
+Check the UI to see if the local testnet is visible. If so, go to Network -> Parachains -> Parathreads and click "+" ParaId button. Ensure if the parachain id is 2000 (configuration in our repository assumes that's your only local parachain). If you have other parachains, get the first free parachain id and modify files under `polka-storage/polkadot-launch/spec/`.
 
 At this point we're assuming that the default parachain id 2000 is being used (so you can use the provided files).
 
@@ -120,11 +121,10 @@ Export genesis state:
 
 Run the local parachain:
 ```bash
-cd polka-storage
 ./target/release/polka-storage-node --alice --collator --force-authoring --chain polkadot-launch/spec/raw-parachain-chainspec.json --base-path /tmp/parachain/alice --port 40333 --rpc-port 8844 -- --execution wasm --chain polkadot-launch/spec/raw-local-chainspec.json --port 30343 --rpc-port 9977
 ```
 
-Now go to the UI and navigate to Developer -> Sudo. Choose `parasSudoWrapper` and `sudoScheduleParaInitialize` function. Enter 2000 as `id`, then click `file upload` on `genesisHead` field and choose `polka-storage/polkadot-launch/spec/para-2000-genesis-state`. Click `file upload` on `validationCode` field and select `polka-storage/polkadot-launch/spec/para-2000-wasm`. `paraKind` field should be set to `true`. Click the `Submit sudo` button and select `Sign and submit` when asked.
+Now go to the UI and navigate to Developer -> Sudo. Choose `parasSudoWrapper` and `sudoScheduleParaInitialize` function. Enter 2000 as `id`, then click `file upload` on `genesisHead` field and choose `polka-storage/polkadot-launch/spec/para-2000-genesis-state`. Click `file upload` on `validationCode` field and select `polka-storage/polkadot-launch/spec/para-2000-wasm`. `paraKind` field should be set to `Yes`. Click the `Submit sudo` button and select `Sign and submit` when asked.
 
 Navigate to Network -> Parachains and watch for events. Parachain should be initially registered (event should occur) and be visible as parathread, and after a while, it should be visible as parachain.
 
@@ -164,7 +164,7 @@ test tests::confirm_update_worker_key_rejects_trigger_before_effective_at ... ok
 ### RPC testing
 RPC testing can be performed by running the local node and sending requests to the RPC endpoint. The endpoint is available at `localhost:9944` by default (can be changed).
 
-To run it, please ensure no other nodes are running locally and execute the node with the development chain:
+To run it, confirm that no other nodes are running locally and then boot the node with the development chain:
 ```bash
 ./target/release/polka-storage-node --dev --tmp
 ```
@@ -194,6 +194,12 @@ When the channel setup is finished you can try to send messages between parachai
 Please note that the benchmarking process is not ready for the PoC code yet and will be available in the future. For now, the weights are set manually.
 
 Benchmarking and updating weights should be done each time a new extrinsic is added to any pallet (weights are used to estimate transaction fees). Weights are obligatory for extrinsics that are available for users.
+
+To create a node with benchmarking capabilities, you need to compile it with:
+```bash
+cargo build --release --features runtime-benchmarks
+```
+By default, nodes used in this Testing Guide do not support benchmarking.
 
 To update weights, the user can run the following command:
 ```bash
