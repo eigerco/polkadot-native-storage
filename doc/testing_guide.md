@@ -82,7 +82,7 @@ yarn start
 ```
 
 ### Local parachain (collator)
-If you have not done this already, please download and build the polkadot-native-storage parachain repository:
+If you have not done this already, download and build the polkadot-native-storage parachain repository:
 ```bash
 git clone https://github.com/eigerco/polkadot-native-storage polka-storage
 ```
@@ -94,9 +94,9 @@ cargo build --release
 ```
 
 ### Putting local parachain and relay chain together
-Ensure that `polkadot-js` is running, by checking browser at `localhost:3000`. For more information about Polkadot UI, please refer to the [official documentation](https://polkadot.js.org/docs/).
+Confirm that `polkadot-js` is running, by checking browser at `localhost:3000`. For more information about Polkadot UI, please refer to the [official documentation](https://polkadot.js.org/docs/).
 
-Run the local relay chain (two nodes) - use two different terminals, sessions (`tmux` or `screen`) or run in the background by add `&` at the end of the command:
+Run the local relay chain (two nodes) - use two different terminals, sessions (`tmux` or `screen`) or run in the background by adding `&` at the end of the command:
 ```bash
 cd polkadot-sdk
 ./target/release/polkadot --alice --validator --base-path /tmp/relay/alice --chain ../polka-storage/polkadot-launch/spec/raw-local-chainspec.json --port 30333 --rpc-port 9944
@@ -195,11 +195,11 @@ Please note that the benchmarking process is not ready for the PoC code yet and 
 
 Benchmarking and updating weights should be done each time a new extrinsic is added to any pallet (weights are used to estimate transaction fees). Weights are obligatory for extrinsics that are available for users.
 
-To create a node with benchmarking capabilities you need to compile it with:
+To create a node with benchmarking capabilities, you need to compile it with:
 ```bash
 cargo build --release --features runtime-benchmarks
 ```
-By default, nodes using in this Testing Guide does not support benchmarking.
+By default, nodes used in this Testing Guide do not support benchmarking.
 
 To update weights, the user can run the following command:
 ```bash
