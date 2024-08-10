@@ -62,3 +62,10 @@ To stop the nodes you may use `docker stop` command:
 ```bash
 sudo docker stop <container_id>
 ```
+
+## About [Eiger](https://www.eiger.co)
+
+We are engineers. We contribute to various ecosystems by building low level implementations and core components. We contribute to Polkadot because we believe in the vision. In addition to our efforts to implement a storage network we also brough Move to Substrate, read more about that on [our blog](https://www.eiger.co/blog/eiger-brings-move-to-polkadot). We are also currently working on Strawberry, our Go implementation of JAM.
+
+Contact us at hello@eiger.co
+Follow us on [X/Twitter](https://x.com/eiger_co)
