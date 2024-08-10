@@ -1,6 +1,18 @@
-# Polka Native Storage
+# Polka Native Storage Research
 
-This repository contains the implementation of the Polka Native Storage (PNS) project. It is a Substrate-based system parachain intended to introduce decentralized storage technology to Polkadot.
+This repository contains the research and poc implementation of the Polka Native Storage grant project completed in Q4 2023. A Substrate-based system parachain intended to introduce decentralized storage technology to Polkadot.
+You can read the results [here](https://github.com/eigerco/polkadot-native-storage/blob/main/doc/report/polkadot-native-storage-v1.0.0.pdf)
+
+A significant part of the research was the implementation of a proof-of-concept, illustrating several aspects of our planned architecture. The PoC demonstrates:
+- parachain registration to a local relay chain (test environment)
+- parachain block production
+- XCM: sending messages between parachains using sudo pallet and ping pallet (in a non-test environment, the sudo pallet would be a system vulnerability and a proper governance mechanism should be used.)
+- visibility of the Filecoin actors as pallets in the local parachain
+- ability to run parts of the FVM code in the Substrate runtime (WASM)
+- the ability to interact with the actors (e.g. miner actor - add miner, change worker address) using extrinsics
+- RPC endpoint interaction
+- ability to control collator selection set
+
 
 Repository structure:
 - `doc` - contains the documentation of the project
